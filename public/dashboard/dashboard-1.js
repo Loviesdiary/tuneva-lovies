@@ -10,7 +10,7 @@ dashboard.dataset.initialized = 'true';
 
 const auth = document.getElementById('tuneva-auth');
 
-const API_BASE = 'https://api.tunevaweb.com.ng';
+const API_BASE = 'https://api.tunevaa.com.ng';
 const EARNINGS_API = API_BASE + '/api/earnings';
 
 const SESSION_STORAGE_KEY = 'tuneva_persistent_session';
