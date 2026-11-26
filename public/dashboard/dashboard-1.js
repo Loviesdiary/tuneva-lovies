@@ -904,4 +904,194 @@ function saveBackendEarning(action, extra) {
       });
     }
 
-    return Promise.re
+    return Promise.resolve({
+      ok: true,
+      pending: true,
+      earnings: getOptimisticSnapshot()
+    });
+  }
+
+  if (action === 'video') {
+    extra = extra || {};
+
+    const event = addPendingEvent('video', extra);
+
+    if (!event) {
+      const snapshot = getOptimisticSnapshot();
+
+      if (
+        extra.videoId &&
+        snapshot.claimedVideos.includes(String(extra.videoId))
+      ) {
+        return Promise.resolve({
+          ok: true,
+          pending: true,
+          earnings: snapshot
+        });
+      }
+
+      return Promise.resolve(null);
+    }
+
+    // Video rewards are queued locally too.
+    // They are synchronized with the next batch.
+
+    return Promise.resolve({
+      ok: true,
+      pending: true,
+      earnings: getOptimisticSnapshot()
+    });
+  }
+
+  return Promise.resolve(null);
+}
+
+// =================================
+// AUTOMATIC SYNCHRONIZATION
+// =================================
+
+function scheduleFlush() {
+  if (state.flushTimer) {
+    clearInterval(state.flushTimer);
+  }
+
+  state.flushTimer = setInterval(function () {
+    if (state.pendingEvents.length) {
+      flushPendingEarnings({
+        silent: true
+      });
+    }
+  }, FLUSH_INTERVAL);
+}
+
+window.addEventListener('online', function () {
+  flushPendingEarnings({
+    silent: true
+  });
+});
+
+// Flush when the browser is closing or navigating away.
+
+window.addEventListener('pagehide', function () {
+  if (state.pendingEvents.length) {
+    flushPendingEarnings({
+      keepalive: true,
+      silent: true
+    });
+  }
+});
+
+// =================================
+// TAP EVENT COMPATIBILITY
+// =================================
+
+function processTapEarnings(event) {
+  const detail = event.detail || {};
+
+  if (!Number(detail.pointsEarned)) return;
+
+  saveBackendEarning('tap');
+}
+
+window.addEventListener(
+  'tuneva:tap-earned',
+  processTapEarnings
+);
+
+// =================================
+// THEME
+// =================================
+
+function requestTheme(theme) {
+  window.dispatchEvent(
+    new CustomEvent('tuneva:theme-change', {
+      detail: {
+        theme: theme
+      }
+    })
+  );
+}
+
+// =================================
+// SHARED DASHBOARD CORE
+// =================================
+
+window.TunevaDashboardCore = {
+  dashboard: dashboard,
+  auth: auth,
+  state: state,
+
+  elements: {
+    themeButton: themeButton,
+    balanceEye: balanceEye,
+    referralLinkElement: referralLinkElement,
+    copyReferralButton: copyReferralButton,
+    copyFeedback: copyFeedback,
+    referralSeeAll: referralSeeAll
+  },
+
+  updateBalance: updateBalance,
+  formatMoney: formatMoney,
+  showToast: showToast,
+
+  loadBackendEarnings: loadBackendEarnings,
+  saveBackendEarning: saveBackendEarning,
+  applyEarningsSnapshot: applyEarningsSnapshot,
+
+  requestTheme: requestTheme,
+  getPersistentToken: getPersistentToken,
+
+  flushPendingEarnings: flushPendingEarnings,
+
+  getPendingEvents: function () {
+    return state.pendingEvents.slice();
+  }
+};
+
+// =================================
+// PUBLIC EARNINGS API
+// =================================
+
+window.TunevaEarnings = {
+  load: loadBackendEarnings,
+  save: saveBackendEarning,
+  apply: applyEarningsSnapshot,
+  flush: flushPendingEarnings,
+
+  getPendingEvents: function () {
+    return state.pendingEvents.slice();
+  },
+
+  getSnapshot: function () {
+    return getOptimisticSnapshot();
+  }
+};
+
+// =================================
+// INITIALIZATION
+// =================================
+
+// Load this user's local queue and cached earnings first.
+
+loadPendingEvents();
+loadCachedSnapshot();
+
+// Display saved browser earnings immediately.
+
+publishOptimisticSnapshot();
+
+// Start periodic synchronization.
+
+scheduleFlush();
+
+// Only load from the backend when no recent browser snapshot exists.
+
+loadBackendEarnings().then(function () {
+  if (state.pendingEvents.length) {
+    flushPendingEarnings({
+      silent: true
+    });
+  }
+});
+
+})();
