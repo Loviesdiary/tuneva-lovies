@@ -55,6 +55,20 @@
       "sessionVersion": 1,
       "termsAccepted": true,
       "createdAt": "2026-11-26T07:06:11.477Z"
+    },
+    {
+      "id": "mwx7rg2s8c20og8phe",
+      "fullName": "Omlnjjnj jbv",
+      "username": "bizmedia",
+      "email": "bizmedia@gmail.com",
+      "phone": "09135588800",
+      "country": "NG",
+      "countryCode": "+234",
+      "passwordHash": "45b1f3c203b0e3df0486d617e22a1ad0:2d8fe82b6a2597666185ebb81669e8185332e4b8f0e4f3714c6fde6c91405ce5c047dca589d3c522fda11f3e727ff7f189e39f5e88676ace256222a6200d32c4",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-26T07:11:06.532Z"
     }
   ]
 }
