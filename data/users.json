@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "mwx7darg3d0emigqrb",
+      "fullName": "Kssksk smsms",
+      "username": "msmsmssm",
+      "email": "kkskskddm@gmail.comk",
+      "phone": "09134446494",
+      "country": "NG",
+      "countryCode": "+234",
+      "passwordHash": "af25991e6b0127bc8bffaae4352ad778:a4abcd3916448e55f84f6a2a6f0da0829db55bd57e20f69bf1728ccb8de74d174ace21af08d6bf6831a29548e4e9009d97143eda0fae5f1abcd0f22b7b083e96",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-26T07:00:06.460Z"
+    }
+  ]
+}
