@@ -97,6 +97,20 @@
       "sessionVersion": 1,
       "termsAccepted": true,
       "createdAt": "2026-11-27T04:58:19.760Z"
+    },
+    {
+      "id": "mwyipglh26gzunqemr",
+      "fullName": "CHIABUOTU OBILO prince",
+      "username": "prince550",
+      "email": "obiloprince5@gmail.com",
+      "phone": "07084839446",
+      "country": "NG",
+      "countryCode": "+234",
+      "passwordHash": "14d2007ea2e1743eb81fa30f71329bf2:ebcd5f6a35f5b61a4c4c6acc232cc83200c5741493365b4acd7898405a9ea3e7650d9afddba76e17fb1877fa79a70f85428669c5461051de731e1cfb6cbb7c7e",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-27T05:05:15.845Z"
     }
   ]
 }
