@@ -111,6 +111,20 @@
       "sessionVersion": 1,
       "termsAccepted": true,
       "createdAt": "2026-11-27T05:05:15.845Z"
+    },
+    {
+      "id": "mwyiu2tdb3b2fsucwl",
+      "fullName": "Gevandre Kruger",
+      "username": "kruger880",
+      "email": "kgevandre@gmail.com",
+      "phone": "07201402211",
+      "country": "ZA",
+      "countryCode": "+27",
+      "passwordHash": "ca00e27b694338baa6eb18f0c298239d:94589077f7099881f6fb2f6d4930f66b4121b673353b9f1883ab2a0666e05830b50a1462f8bb5f01a395fb6fd8df4f4137c5814424847a9513148918540e16f7",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-27T05:08:51.265Z"
     }
   ]
 }
