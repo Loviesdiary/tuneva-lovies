@@ -83,6 +83,20 @@
       "sessionVersion": 1,
       "termsAccepted": true,
       "createdAt": "2026-11-26T10:40:19.073Z"
+    },
+    {
+      "id": "mwyigjjkv2qcpdbchi",
+      "fullName": "Aizobua Edith Itohan",
+      "username": "edith350",
+      "email": "aizobuaedith@gmail.com",
+      "phone": "08028773559",
+      "country": "NG",
+      "countryCode": "+234",
+      "passwordHash": "518384c803e8898114dcfde692e3eb85:823dbb2f8fa794579310a5b4b4defd727fcdd639c35937dbd97e5ec508279dcb209e3deb1d1ef4d3335288538fcde25b66f0eec4bb6ae5ea6226de2046a1fb17",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-27T04:58:19.760Z"
     }
   ]
 }
