@@ -125,6 +125,20 @@
       "sessionVersion": 1,
       "termsAccepted": true,
       "createdAt": "2026-11-27T05:08:51.265Z"
+    },
+    {
+      "id": "mwysne059zaow91z73",
+      "fullName": "Aizobua Olive",
+      "username": "olivejan",
+      "email": "aizobuaolive@gmail.com",
+      "phone": "08166965698",
+      "country": "NG",
+      "countryCode": "+234",
+      "passwordHash": "c63558beef1ca1252d81065400587346:5300c038dccc343f7c569d0bd922ff9d4f6bb3fc007a454be17df7fe743e77aabae2175c767a121f0cb2f8644c9ef4346c6df895c18933fa0a931e89b5f54e66",
+      "status": "active",
+      "sessionVersion": 1,
+      "termsAccepted": true,
+      "createdAt": "2026-11-27T09:43:35.333Z"
     }
   ]
 }
